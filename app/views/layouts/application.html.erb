@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ERF - Schaffner</title>
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="communication.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body> 
+
+<ul>
+	<li><%= link_to "Home", root_path, class:"list" %></li>
+	<li><%= link_to "New ERF", new_message_path, class:"list" %></li>
+	<li><%= link_to "Register User", new_user_registration_path, class:"list"%></li>
+	<% if user_signed_in? %>
+		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"list"%></li>
+	<% else%>
+		<li><%= link_to "Log In", new_user_session_path, class:"list" %><li>
+	<% end %>
+</ul>
+
+	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+
+
+<style media="screen" type="text/css">
+
+.list {
+    color: white;
+    font-size: 18px;
+    font-family: "Arial";
+    text-decoration: none;
+
+}
+
+li {
+	display:inline;
+	padding-right: 150px;
+    margin: auto;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #333;
+    height: 30px;
+    text-align: center;
+    padding left:60px;
+    padding-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+</style>
+</html>

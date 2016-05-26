@@ -1,0 +1,57 @@
+
+<h1>Engineering Change Requests</h1>
+
+<table id = "requests" class="display" cellspacing="0" width="%">
+	<thead>
+	<tr>
+		<th>Name of Request</th>
+		<th>Job Number</th>
+		<th>Date Created</th>
+		<th>Customer</th>
+		<th>Status</th>
+	</tr>
+</thead>
+<tbody>
+	<% @messages.each do |message| %>
+	<tr>
+	<div class = 'info'>
+		<td><%= link_to  message.title , message_path(message)%></td>
+		
+		<td><%= message.job %></td>
+		<td><%= message.created_at.strftime("%b %d, %Y") %></td>
+		<td><%= message.customer %></td>
+		<td><%= message.status %></td>
+	
+	</div>
+	</tr>
+<% end %>
+</tbody>
+</table>
+
+<script>
+$(document).ready(function() {
+    $('#requests').DataTable();
+} );</script>
+
+
+<style media="screen" type="text/css">
+
+h1{
+	text-align: center;
+}
+
+td a{
+text-decoration: none;
+color: black;
+	
+}
+
+tbody {
+	left: 50%;
+}
+
+td {
+    text-align: center;
+}
+
+</style>

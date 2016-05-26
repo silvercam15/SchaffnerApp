@@ -1,0 +1,44 @@
+<div>
+<p><%= comment.content %>
+<p>Posted by <%= comment.user.try(:email) %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+<% if user_signed_in?  %>
+<% if comment.user.id == current_user.id %>
+<%= link_to "Update", edit_message_comment_path(comment.message, comment) %></p>
+</div>
+<% end %>
+<hr>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+	<style media="screen" type="text/css">
+
+p {
+width: 900px;
+margin: auto;
+border-radius: 10px;
+}
+
+p a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+div {
+	padding-top: 20px;
+}
+
+hr {
+width: 60%;
+color:#D8D8D8;
+}
+	</style>
+

@@ -1,0 +1,38 @@
+<%= simple_form_for @message, url: messages_path, html: { multipart: true }  do |f| %>
+
+	<div id = 'list'>
+	<div class ="color"><%= f.select :status, [['Completed','completed'],['In Progress','in progress'],['Rejected','rejected']], label: "Status",input_html: {style: 'height:20px;' 'width: 274px'}%></div>
+	<br>
+	<br>
+	<%= f.input :customer, label: "Customer", input_html: {style: 'height:20px;' 'width: 274px'}%>
+	<%= f.input :job, label: "Job Number", input_html: {style: 'height:20px;' 'width: 274px'}%>
+	<%= f.input :title, label: "Title", input_html: {style: 'height:20px;' 'width: 274px'}%>
+	<%= f.file_field :image, class: "form-control" %> 
+
+	</div>
+
+	<br>
+	<%= f.input :description, input_html: {style: 'height:300px;' 'width: 700px'} %>
+	<br>
+	<div class = 'button'><%= f.button :submit, label: "Submit" %></div>
+	<br>
+	<br>
+
+	<br>
+<% end %>
+
+<style media="screen" type="text/css">
+
+.list {
+	position: relative;
+	text-align: left;
+}
+
+
+.button {
+	
+	text-align: center;
+	left: 46%;
+}
+
+</style>
